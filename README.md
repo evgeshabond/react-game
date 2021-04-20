@@ -1,4 +1,6 @@
 # Memory Game
+
+[LIVE DEMO](https://react-game-bh7vbo394-eugeniybondarenko-gmailcom.vercel.app/) 
 ## Rules
 - choose a card
 - choose another card
