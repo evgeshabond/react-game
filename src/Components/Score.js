@@ -5,7 +5,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Icon } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { IndeterminateCheckBoxOutlined } from '@material-ui/icons';
-import gameSlice from './gameSlice'
+import gameSlice from '../redux/gameSlice'
 import { DateTime } from "luxon";
 
 const useStyles = createUseStyles({

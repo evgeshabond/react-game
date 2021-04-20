@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import generateDeck from './generateDeck'
+import generateDeck from '../utils/generateDeck'
 
 
 

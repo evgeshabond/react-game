@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import Card from "./Card.js";
 import { useDispatch, useSelector } from "react-redux";
-import cardsSlice from "./cardsSlice";
-import gameSlice from "./gameSlice.js";
+import cardsSlice from "../redux/cardsSlice";
+import gameSlice from "../redux/gameSlice.js";
+
+import Modal from './Modal'
 import { DateTime } from "luxon";
 
 const useStyles = createUseStyles({
@@ -28,9 +30,9 @@ const GameBoard = (props) => {
   const makeChoise = async (state, dispatch, cardIndex) => {
     if (!state) return;
     if (state.game.pause) return; //exit function if game is paused
-    if (state.cards[cardIndex].cardStatus !== "unguessed") return; //exit if card is 'check' or 'guessed'
+    if (state.cards[cardIndex].cardStatus != "unguessed") return; //exit if card is 'check' or 'guessed'
   
-    if (state.game.turn === 0) {
+    if (state.game.turn == 0) {
       props.playCardSwapAudio()
       dispatch(gameSlice.actions.setPause());
       dispatch(
@@ -43,7 +45,7 @@ const GameBoard = (props) => {
       setTimeout(() => dispatch(gameSlice.actions.setContinue()), 50);
     }
   
-    if (state.game.turn === 1) {
+    if (state.game.turn == 1) {
       props.playCardSwapAudio()
       dispatch(gameSlice.actions.setPause());
       dispatch(
@@ -55,8 +57,8 @@ const GameBoard = (props) => {
       dispatch(gameSlice.actions.setTurn({ turn: 0 }));
   
       //search for first card and compare with actual
-      const firstChoise = state.cards.find((card) => card.cardStatus === "check");
-      const isGuessed = firstChoise?.cardValue === state.cards?.[cardIndex]?.cardValue;
+      const firstChoise = state.cards.find((card) => card.cardStatus == "check");
+      const isGuessed = firstChoise?.cardValue == state.cards?.[cardIndex]?.cardValue;
   
       if (isGuessed) {
         dispatch(gameSlice.actions.setCorrect())
@@ -123,7 +125,7 @@ const GameBoard = (props) => {
   const cards = useSelector((state) => state.cards);
   //Check if all cards already guessed
   useEffect(() => {
-    const allGuessed = cards.every((card) => card.cardStatus === "guessed");
+    const allGuessed = cards.every((card) => card.cardStatus == "guessed");
     if (allGuessed) {
       setTimeout(() => setShowModal(true), 400)
       dispatch(gameSlice.actions.setGameState({gameState: 'won'}))
@@ -137,7 +139,7 @@ const GameBoard = (props) => {
       }
       window.localStorage.setItem('gameHistory', JSON.stringify(storage)) 
     }
-  }, [cards, dispatch, setShowModal]);
+  }, [cards]);
 
   return (
     <>

@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import SvgIcon from '@material-ui/core/SvgIcon';
-import RsLogo from './rs_school_js.svg'
+import RsLogo from '../assets/images/rs_school_js.svg'
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({

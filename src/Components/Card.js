@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
-import cardsSlice from './cardsSlice'
+import cardsSlice from '../redux/cardsSlice'
 
 const useStyles = createUseStyles({
   card: {

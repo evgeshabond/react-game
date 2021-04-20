@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { combineReducers, configureStore, createSlice } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
-import cardsSlice from './cardsSlice'
-import gameSlice from './gameSlice'
-import settingsSlice from './settingsSlice';
+import cardsSlice from './redux/cardsSlice'
+import gameSlice from './redux/gameSlice'
+import settingsSlice from './redux/settingsSlice';
 
 const store = configureStore({
   reducer: {

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
 import cardsSlice from './cardsSlice'
-import { Container } from '@material-ui/core';
 import gameSlice from "./gameSlice";
 
 import Table from '@material-ui/core/Table';
@@ -77,7 +76,7 @@ const Modal = (props) => {
         }}
       ></div>
       
-        {game.gameState == 'won' && (
+        {game.gameState === 'won' && (
           <div className={classes.modal}>
             <p>Congratulations!</p>
             <p>You won!</p>
@@ -93,7 +92,7 @@ const Modal = (props) => {
             </button>
           </div>
         )}
-        {game.gameState == 'lost' && (
+        {game.gameState === 'lost' && (
           <div className={classes.modal}>
             <p>You lost!</p>
             <button

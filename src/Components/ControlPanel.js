@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import cardsSlice from "./cardsSlice";
-import gameSlice from "./gameSlice";
+import cardsSlice from "../redux/cardsSlice";
+import gameSlice from "../redux/gameSlice";
 import { createUseStyles } from "react-jss";
 import { IconButton } from "@material-ui/core";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
@@ -11,7 +11,7 @@ import MusicOffIcon from "@material-ui/icons/MusicOff";
 import Slider from "@material-ui/core/Slider";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
-import settingsSlice from "./settingsSlice";
+import settingsSlice from "../redux/settingsSlice";
 
 const useStyles = createUseStyles({
   controlPanel: {
@@ -41,9 +41,6 @@ const ControlPanel = (props) => {
   const [showEffectsControl, setShowEffectsControl] = useState(false);
 
   const settings = useSelector((state) => state.settings);
-
-  const cards = useSelector((state) => state.cards);
-  const score = cards.filter((card) => card.cardStatus == "guessed").length;
   const classes = useStyles({ showAudioControl, showEffectsControl });
 
   return (
@@ -117,7 +114,7 @@ const ControlPanel = (props) => {
             aria-labelledby="vertical-slider"
             value={settings.effectsVolume * 100}
             onChange={(e, value) => {
-              if (value == 0) {
+              if (value === 0) {
                 dispatch(
                   settingsSlice.actions.setEffects({ effectsEnabled: false })
                 );

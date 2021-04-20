@@ -1,19 +1,17 @@
-import { findByLabelText } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import GameBoard from "./GameBoard";
-import ControlPanel from "./ControlPanel";
-import Modal from "./Modal";
-import { useDispatch, useSelector, useStore } from "react-redux";
-import gameSlice from './gameSlice'
-import Footer from './Footer'
+import GameBoard from "./Components/GameBoard";
+import ControlPanel from "./Components/ControlPanel";
+import Modal from "./Components/Modal";
+import { useSelector } from "react-redux";
+import Footer from './Components/Footer'
 
-import backgroundMusic from "./music/background.mp3";
-import cardSwapMusic from "./music/card_swap.mp3";
-import correct from "./music/correct.mp3";
-import wrong from "./music/wrong.wav";
+import backgroundMusic from "./assets/music/background.mp3";
+import cardSwapMusic from "./assets/music/card_swap.mp3";
+import correct from "./assets/music/correct.mp3";
+import wrong from "./assets/music/wrong.wav";
 
-import Score from "./Score";
+import Score from "./Components/Score";
 
 //init jss
 const useStyles = createUseStyles({
@@ -44,7 +42,6 @@ const App = (props) => {
   const settings = useSelector((state) => state.settings);
   const game = useSelector((state) => state.game)
   const cards = useSelector((state) => state.cards)
-  const dispatch = useDispatch()
 
   //update localStorage on state change
   useEffect(() => {
