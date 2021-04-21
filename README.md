@@ -15,6 +15,7 @@ The player then selects another card and turns it over. If the two cards are a m
 ## Used technologies:
 - HTML
 - CSS (CSS in JS - [JSS](https://cssinjs.org/?v=v10.6.0) Libarary)
+- Material UI
 - [React.js](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 
